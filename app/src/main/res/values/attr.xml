@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomVerticalSlider">
+        <attr name="data_type" format="enum">
+            <enum name="temperature" value="0" />
+            <enum name="humidity" value="1" />
+            <enum name="windSpeed" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SetValueView">
+        <attr name="set_data_type" format="enum">
+            <enum name="temperature" value="0" />
+            <enum name="humidity" value="1" />
+            <enum name="windSpeed" value="2" />
+        </attr>
+    </declare-styleable>
+
+</resources>
