@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/leafs_container_height"
+        android:layout_marginStart="@dimen/dp_8"
+        android:gravity="center|bottom"
+        android:orientation="horizontal"
+        android:visibility="invisible" />
+
+
+    <app.custom.component.LeafView
+        android:id="@+id/leaf_1"
+        android:layout_width="@dimen/leaf_width"
+        android:layout_height="@dimen/leaf_height"
+        android:layout_above="@id/leaf_main_card"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/dp_32" />
+
+
+    <app.custom.component.LeafView
+        android:id="@+id/leaf_2"
+        android:layout_width="@dimen/leaf_width"
+        android:layout_height="@dimen/leaf_height"
+        android:layout_above="@id/leaf_main_card"
+        android:layout_marginStart="@dimen/leaf_side_compensation"
+        android:layout_toEndOf="@id/leaf_1" />
+
+
+    <app.custom.component.LeafView
+        android:id="@+id/leaf_3"
+        android:layout_width="@dimen/leaf_width"
+        android:layout_height="@dimen/leaf_height"
+        android:layout_above="@id/leaf_main_card"
+        android:layout_marginStart="@dimen/leaf_side_compensation"
+        android:layout_toStartOf="@id/leaf_4" />
+
+    <app.custom.component.LeafView
+        android:id="@+id/leaf_4"
+        android:layout_width="@dimen/leaf_width"
+        android:layout_height="@dimen/leaf_height"
+        android:layout_above="@id/leaf_main_card"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/leaf_side_compensation"
+        android:layout_marginEnd="@dimen/dp_24" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/leaf_main_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/leaf_bar_main_card_height"
+        android:layout_below="@+id/placeholder"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="-4dp"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_16"
+        app:cardBackgroundColor="@color/cardRedStartGradientColor"
+        app:cardCornerRadius="@dimen/leaf_bar_main_card_corner_radius"
+        app:cardElevation="@dimen/dp_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginBottom="@dimen/dp_16"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/leaf_bar_main_card_corner_radius"
+                app:cardElevation="@dimen/leaf_bar_child_elevation">
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:layout_marginBottom="@dimen/dp_16"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/leaf_bar_main_card_corner_radius"
+                app:cardElevation="@dimen/leaf_bar_child_elevation">
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:layout_marginBottom="@dimen/dp_16"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/leaf_bar_main_card_corner_radius"
+                app:cardElevation="@dimen/leaf_bar_child_elevation">
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</RelativeLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/leafs_container"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="@dimen/dp_24"-->
+<!--        android:layout_marginTop="@dimen/dp_16"-->
+<!--        android:layout_marginEnd="@dimen/dp_8"-->
+<!--        android:gravity="center"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <FrameLayout-->
+<!--            android:id="@+id/leaf_1"-->
+<!--            android:layout_width="@dimen/leaf_width"-->
+<!--            android:layout_height="@dimen/leaf_height_inactive"-->
+<!--            android:background="@drawable/ic_leaf_inactive"-->
+<!--            android:translationZ="@dimen/leaf_bar_main_card_corner_radius" />-->
+
+<!--        <FrameLayout-->
+<!--            android:id="@+id/leaf_2"-->
+<!--            android:layout_width="@dimen/leaf_width"-->
+<!--            android:layout_height="@dimen/leaf_height_inactive"-->
+<!--            android:background="@drawable/ic_leaf_inactive"-->
+<!--            android:translationZ="@dimen/leaf_bar_main_card_corner_radius" />-->
+
+<!--        <FrameLayout-->
+<!--            android:id="@+id/leaf_3"-->
+<!--            android:layout_width="@dimen/leaf_width"-->
+<!--            android:layout_height="@dimen/leaf_height_inactive"-->
+<!--            android:background="@drawable/ic_leaf_inactive"-->
+<!--            android:translationZ="@dimen/leaf_bar_main_card_corner_radius" />-->
+
+<!--        <FrameLayout-->
+<!--            android:id="@+id/leaf_4"-->
+<!--            android:layout_width="@dimen/leaf_width"-->
+<!--            android:layout_height="@dimen/leaf_height_inactive"-->
+<!--            android:background="@drawable/ic_leaf_inactive"-->
+<!--            android:translationZ="@dimen/leaf_bar_main_card_corner_radius" />-->
+
+<!--    </LinearLayout>-->
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

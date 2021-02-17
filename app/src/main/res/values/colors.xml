@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="mineShaft">#393939</color>
+    <color name="alizarinCrimson">#DE2E3F</color>
+
+   <color name="cardRedStartGradientColor">#FFDE2E3F</color>
+   <color name="cardRedEndGradientColor">#FFDA4A5E</color>
+   <color name="tonysPink">#E48D8D</color>
 </resources>

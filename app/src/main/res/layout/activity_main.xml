@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false"
     android:orientation="vertical">
 
-    <app.custom.component.slider.ThreeSlidersView
-        android:id="@+id/three_sliders_view"
+    <app.custom.component.LeafsBarView
+        android:id="@+id/leafs_bar_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        tools:context=".MainActivity" />
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_32">
 
-        <app.custom.component.shared.SetValueView
-            android:id="@+id/set_temp"
+        <Button
+            android:id="@+id/toggle1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
             android:layout_weight="1"
-            app:set_data_type="temperature" />
+            android:text="1" />
 
-        <app.custom.component.shared.SetValueView
-            android:id="@+id/set_humidity"
+        <Button
+            android:id="@+id/toggle2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
             android:layout_weight="1"
-            app:set_data_type="humidity" />
+            android:text="2" />
 
-        <app.custom.component.shared.SetValueView
-            android:id="@+id/set_wind_speed"
+        <Button
+            android:id="@+id/toggle3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
             android:layout_weight="1"
-            app:set_data_type="windSpeed" />
+            android:text="3" />
+
+        <Button
+            android:id="@+id/toggle4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:layout_weight="1"
+            android:text="4" />
 
     </LinearLayout>
 
