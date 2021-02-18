@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center|start"
     android:orientation="vertical"
     tools:ignore="UseCompoundDrawables">
 
     <ImageView
         android:id="@+id/sense_card_image"
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/energy_abstract" />
+        android:src="@drawable/energy_abstract"
+        app:layout_constraintBottom_toTopOf="@id/sense_card_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/sense_card_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_8"
         android:ellipsize="end"
         android:fontFamily="sans-serif-medium"
         android:paddingEnd="@dimen/dp_8"
         android:singleLine="true"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="RtlSymmetry"
         tools:text="reality" />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

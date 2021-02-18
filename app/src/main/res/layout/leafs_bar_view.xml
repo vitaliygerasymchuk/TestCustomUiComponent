@@ -2,8 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
     <FrameLayout
         android:id="@+id/placeholder"
@@ -20,8 +19,7 @@
     <LinearLayout
         android:id="@+id/leafs"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/sense_main_card"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_8"
         android:gravity="center|bottom"
         android:translationZ="100dp"
@@ -57,15 +55,14 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/sense_main_card"
         android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_height="@dimen/leaf_bar_main_card_height"
         android:layout_below="@+id/placeholder"
         android:layout_marginStart="@dimen/dp_16"
         android:layout_marginEnd="@dimen/dp_16"
         android:layout_marginBottom="@dimen/dp_16"
-        app:cardBackgroundColor="@color/cardRedStartGradientColor"
         app:cardCornerRadius="@dimen/leaf_bar_main_card_corner_radius"
         app:cardElevation="@dimen/dp_8"
-        app:contentPadding="@dimen/dp_8"
         app:layout_constraintTop_toBottomOf="@+id/leafs">
 
         <LinearLayout
@@ -76,6 +73,9 @@
             <app.custom.component.SenseSectionCardCard
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_8"
                 android:layout_weight="1"
                 app:cardCornerRadius="@dimen/leaf_bar_child_card_corner_radius"
                 app:cardElevation="@dimen/leaf_bar_child_elevation"
@@ -89,7 +89,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
                 android:layout_marginEnd="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_8"
                 android:layout_weight="1"
                 app:cardCornerRadius="@dimen/leaf_bar_child_card_corner_radius"
                 app:cardElevation="@dimen/leaf_bar_child_elevation"
@@ -102,6 +104,9 @@
             <app.custom.component.SenseSectionCardCard
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_8"
                 android:layout_weight="1"
                 app:cardCornerRadius="@dimen/leaf_bar_child_card_corner_radius"
                 app:cardElevation="@dimen/leaf_bar_child_elevation"

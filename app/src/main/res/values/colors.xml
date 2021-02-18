@@ -12,7 +12,7 @@
     <color name="mineShaft">#393939</color>
     <color name="alizarinCrimson">#DE2E3F</color>
 
-   <color name="cardRedStartGradientColor">#FFDE2E3F</color>
-   <color name="cardRedEndGradientColor">#FFDA4A5E</color>
+   <color name="cardRedStartGradientColor">#DE2E3F</color>
+   <color name="cardRedEndGradientColor">#DA4A5E</color>
    <color name="tonysPink">#E48D8D</color>
 </resources>

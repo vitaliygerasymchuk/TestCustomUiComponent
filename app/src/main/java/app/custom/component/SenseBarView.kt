@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import com.google.android.material.card.MaterialCardView
 
@@ -14,7 +15,7 @@ enum class SenseType {
 
 class SenseBarView : FrameLayout {
 
-    private var card: MaterialCardView? = null
+    private var card: CardView? = null
     private var senseLeaf1: SenseLeaf? = null
     private var senseLeaf2: SenseLeaf? = null
     private var senseLeaf3: SenseLeaf? = null

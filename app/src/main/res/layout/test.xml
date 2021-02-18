@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/sense_main_card"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/leaf_bar_main_card_height"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_32"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_16"
+        app:cardCornerRadius="@dimen/leaf_bar_main_card_corner_radius"
+        app:cardElevation="@dimen/dp_16"
+        app:layout_constraintTop_toBottomOf="@+id/leafs">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <app.custom.component.SenseSectionCardCard
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/leaf_bar_child_card_corner_radius"
+                app:cardElevation="@dimen/leaf_bar_child_elevation"
+                app:contentPaddingLeft="@dimen/dp_8"
+                app:contentPaddingRight="@dimen/dp_8"
+                app:sense_image_resource="@drawable/energy_reality"
+                app:sense_title="reality"
+                app:sense_type="sense_reality" />
+
+            <app.custom.component.SenseSectionCardCard
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/leaf_bar_child_card_corner_radius"
+                app:cardElevation="@dimen/leaf_bar_child_elevation"
+                app:contentPaddingLeft="@dimen/dp_8"
+                app:contentPaddingRight="@dimen/dp_8"
+                app:sense_image_resource="@drawable/energy_detailed"
+                app:sense_title="detailed"
+                app:sense_type="sense_detailed" />
+
+            <app.custom.component.SenseSectionCardCard
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/leaf_bar_child_card_corner_radius"
+                app:cardElevation="@dimen/leaf_bar_child_elevation"
+                app:contentPaddingLeft="@dimen/dp_8"
+                app:contentPaddingRight="@dimen/dp_8"
+                app:sense_image_resource="@drawable/energy_abstract"
+                app:sense_title="abstract"
+                app:sense_type="sense_abstract" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>
