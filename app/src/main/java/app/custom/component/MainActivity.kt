@@ -11,18 +11,18 @@ class MainActivity : AppCompatActivity(), Loggable {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val leafsView = findViewById<LeafsBarView>(R.id.leafs_bar_view)
+        val leafsView = findViewById<SenseBarView>(R.id.leafs_bar_view)
         findViewById<View>(R.id.toggle1).setOnClickListener {
-            leafsView.setExpanded(LeafType.One)
+            leafsView.setExpanded(SenseType.One)
         }
         findViewById<View>(R.id.toggle2).setOnClickListener {
-            leafsView.setExpanded(LeafType.Two)
+            leafsView.setExpanded(SenseType.Two)
         }
         findViewById<View>(R.id.toggle3).setOnClickListener {
-            leafsView.setExpanded(LeafType.Three)
+            leafsView.setExpanded(SenseType.Three)
         }
         findViewById<View>(R.id.toggle4).setOnClickListener {
-            leafsView.setExpanded(LeafType.Four)
+            leafsView.setExpanded(SenseType.Four)
         }
 
 //        val test = findViewById<LeafView>(R.id.right)

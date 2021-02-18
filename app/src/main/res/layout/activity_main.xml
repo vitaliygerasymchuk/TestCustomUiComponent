@@ -5,7 +5,7 @@
     android:baselineAligned="false"
     android:orientation="vertical">
 
-    <app.custom.component.LeafsBarView
+    <app.custom.component.SenseBarView
         android:id="@+id/leafs_bar_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

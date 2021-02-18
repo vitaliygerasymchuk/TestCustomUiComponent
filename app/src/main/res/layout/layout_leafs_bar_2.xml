@@ -11,22 +11,22 @@
         android:gravity="center|bottom"
         android:orientation="horizontal">
 
-        <app.custom.component.LeafView
+        <app.custom.component.SenseLeaf
             android:id="@+id/leaf_1"
             android:layout_width="100dp"
             android:layout_height="200dp" />
 
-        <app.custom.component.LeafView
+        <app.custom.component.SenseLeaf
             android:id="@+id/leaf_2"
             android:layout_width="100dp"
             android:layout_height="200dp" />
 
-        <app.custom.component.LeafView
+        <app.custom.component.SenseLeaf
             android:id="@+id/leaf_3"
             android:layout_width="100dp"
             android:layout_height="200dp" />
 
-        <app.custom.component.LeafView
+        <app.custom.component.SenseLeaf
             android:id="@+id/leaf_4"
             android:layout_width="100dp"
             android:layout_height="200dp" />

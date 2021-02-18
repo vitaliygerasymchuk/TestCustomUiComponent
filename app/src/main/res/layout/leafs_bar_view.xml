@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -12,35 +12,40 @@
         android:layout_marginStart="@dimen/dp_8"
         android:gravity="center|bottom"
         android:orientation="horizontal"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/leafs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/leaf_main_card"
+        android:layout_above="@id/sense_main_card"
         android:layout_marginStart="@dimen/dp_8"
         android:gravity="center|bottom"
-        android:translationZ="100dp">
+        android:translationZ="100dp"
+        app:layout_constraintBottom_toBottomOf="@id/placeholder">
 
-        <app.custom.component.LeafView
+        <app.custom.component.SenseLeaf
             android:id="@+id/leaf_1"
             android:layout_width="@dimen/leaf_width"
             android:layout_height="@dimen/leaf_height"
             android:layout_marginStart="@dimen/dp_32" />
 
-        <app.custom.component.LeafView
+        <app.custom.component.SenseLeaf
             android:id="@+id/leaf_2"
             android:layout_width="@dimen/leaf_width"
             android:layout_height="@dimen/leaf_height"
             android:layout_marginStart="@dimen/leaf_side_compensation" />
 
-        <app.custom.component.LeafView
+        <app.custom.component.SenseLeaf
             android:id="@+id/leaf_3"
             android:layout_width="@dimen/leaf_width"
             android:layout_height="@dimen/leaf_height"
             android:layout_marginStart="@dimen/leaf_side_compensation" />
 
-        <app.custom.component.LeafView
+        <app.custom.component.SenseLeaf
             android:id="@+id/leaf_4"
             android:layout_width="@dimen/leaf_width"
             android:layout_height="@dimen/leaf_height"
@@ -50,7 +55,7 @@
     </LinearLayout>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/leaf_main_card"
+        android:id="@+id/sense_main_card"
         android:layout_width="match_parent"
         android:layout_height="@dimen/leaf_bar_main_card_height"
         android:layout_below="@+id/placeholder"
@@ -60,7 +65,8 @@
         app:cardBackgroundColor="@color/cardRedStartGradientColor"
         app:cardCornerRadius="@dimen/leaf_bar_main_card_corner_radius"
         app:cardElevation="@dimen/dp_8"
-        app:contentPadding="@dimen/dp_8">
+        app:contentPadding="@dimen/dp_8"
+        app:layout_constraintTop_toBottomOf="@+id/leafs">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -109,4 +115,26 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-</RelativeLayout>
+    <androidx.constraintlayout.widget.Placeholder
+        android:id="@+id/main_card_center"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/sense_main_card"
+        app:layout_constraintTop_toTopOf="@id/sense_main_card" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/background_card"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_8"
+        app:cardBackgroundColor="@color/purple_200"
+        app:cardCornerRadius="@dimen/leaf_bar_main_card_corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/main_card_center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

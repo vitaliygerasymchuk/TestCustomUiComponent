@@ -6,28 +6,26 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
-import android.os.Build
 import android.util.AttributeSet
-import android.view.ViewTreeObserver.*
+import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import app.custom.component.shared.Loggable
 
-enum class LeafViewState {
+enum class SenseViewState {
     Expanded,
     Collapsed
 }
 
 
-class LeafView : FrameLayout, Loggable {
-
+class SenseLeaf : FrameLayout, Loggable {
 
     private var initialHeight: Int = 0
     private lateinit var stableDrawable: Drawable
     private lateinit var expandedDrawable: Drawable
     private var valueAnimator: ValueAnimator? = null
-    private var currentState: LeafViewState = LeafViewState.Collapsed
+    private var currentState: SenseViewState = SenseViewState.Collapsed
     private var textPaint = Paint()
 
     var expandedColor: String = "#ffffff"
@@ -78,12 +76,12 @@ class LeafView : FrameLayout, Loggable {
         drawTitle(canvas)
     }
 
-    fun expand(function: (state: LeafViewState, expandedColor: String) -> Unit) {
-        setState(LeafViewState.Expanded, function)
+    fun expand(function: (state: SenseViewState, expandedColor: String) -> Unit) {
+        setState(SenseViewState.Expanded, function)
     }
 
-    fun collapse(function: (state: LeafViewState, expandedColor: String) -> Unit) {
-        setState(LeafViewState.Collapsed, function)
+    fun collapse(function: (state: SenseViewState, expandedColor: String) -> Unit) {
+        setState(SenseViewState.Collapsed, function)
     }
 
     private fun init() {
@@ -92,8 +90,8 @@ class LeafView : FrameLayout, Loggable {
         textPaint.color = Color.WHITE
         textPaint.textSize = TITLE_TEXT_SIZE
 
-        stableDrawable = ContextCompat.getDrawable(context, R.drawable.ic_leaf)!!
-        expandedDrawable = ContextCompat.getDrawable(context, R.drawable.ic_leaf)!!.mutate()
+        stableDrawable = ContextCompat.getDrawable(context, R.drawable.ic_sence)!!
+        expandedDrawable = ContextCompat.getDrawable(context, R.drawable.ic_sence)!!.mutate()
 
         background = stableDrawable
         viewTreeObserver.addOnGlobalLayoutListener(object : OnGlobalLayoutListener {
@@ -109,17 +107,17 @@ class LeafView : FrameLayout, Loggable {
     }
 
     private fun setState(
-        state: LeafViewState,
-        function: (state: LeafViewState, expandedColor: String) -> Unit
+        state: SenseViewState,
+        function: (state: SenseViewState, expandedColor: String) -> Unit
     ) {
         if (isPreConditionOk(state)) {
             currentState = state
             valueAnimator?.cancel()
             valueAnimator = null
 
-            val startHeight = if (state == LeafViewState.Collapsed) height else initialHeight
+            val startHeight = if (state == SenseViewState.Collapsed) height else initialHeight
             val desiredHeight =
-                if (state == LeafViewState.Expanded) initialHeight + EXPAND_HEIGHT_PX else initialHeight
+                if (state == SenseViewState.Expanded) initialHeight + EXPAND_HEIGHT_PX else initialHeight
             valueAnimator = ValueAnimator.ofInt(
                 startHeight,
                 desiredHeight
@@ -130,8 +128,8 @@ class LeafView : FrameLayout, Loggable {
                 layoutParams.height = value
                 requestLayout()
                 if (value == desiredHeight) {
-                    background = getStateDrawable(state == LeafViewState.Expanded)
-                    translationZ = if (state == LeafViewState.Expanded) 50f else 0f
+                    background = getStateDrawable(state == SenseViewState.Expanded)
+                    translationZ = if (state == SenseViewState.Expanded) 50f else 0f
                     function(state, expandedColor)
                 }
             }
@@ -139,7 +137,7 @@ class LeafView : FrameLayout, Loggable {
         }
     }
 
-    private fun isPreConditionOk(nextState: LeafViewState): Boolean {
+    private fun isPreConditionOk(nextState: SenseViewState): Boolean {
         if (height == 0) return false
         if (nextState == currentState) return false
         if (initialHeight == 0) {
@@ -162,10 +160,10 @@ class LeafView : FrameLayout, Loggable {
         canvas?.let {
             it.save()
             val x = initialHeight / TITLE_X_COMPENSATION
-            val y = height - TITLE_Y_COMPENSATION
+            val y = initialHeight - TITLE_Y_COMPENSATION
             it.rotate(TITLE_ROTATION_DEGREES, x, y)
             textPaint.alpha =
-                if (currentState == LeafViewState.Expanded) TITLE_NO_ALPHA else TITLE_ALPHA
+                if (currentState == SenseViewState.Expanded) TITLE_NO_ALPHA else TITLE_ALPHA
             it.drawText(title, x, y, textPaint)
             it.restore()
         }
