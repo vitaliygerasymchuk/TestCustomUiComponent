@@ -90,8 +90,8 @@ class SenseLeaf : FrameLayout, Loggable {
         textPaint.color = Color.WHITE
         textPaint.textSize = TITLE_TEXT_SIZE
 
-        stableDrawable = ContextCompat.getDrawable(context, R.drawable.ic_sence)!!
-        expandedDrawable = ContextCompat.getDrawable(context, R.drawable.ic_sence)!!.mutate()
+        stableDrawable = ContextCompat.getDrawable(context, R.drawable.ic_sense_2)!!
+        expandedDrawable = ContextCompat.getDrawable(context, R.drawable.ic_sense_2)!!.mutate()
 
         background = stableDrawable
         viewTreeObserver.addOnGlobalLayoutListener(object : OnGlobalLayoutListener {
