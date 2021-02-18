@@ -72,6 +72,11 @@ class LeafsBarView : FrameLayout {
         leaf4!!.setOnClickListener {
             setExpanded(LeafType.Four)
         }
+
+        leaf1!!.title = "Float"
+        leaf2!!.title = "Calm"
+        leaf3!!.title = "Sleep"
+        leaf4!!.title = "Energy"
     }
 
     private fun init() {

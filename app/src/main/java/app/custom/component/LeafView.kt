@@ -2,11 +2,14 @@ package app.custom.component
 
 import android.animation.ValueAnimator
 import android.content.Context
+import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.Paint
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.util.AttributeSet
+import android.view.ViewTreeObserver.*
 import android.widget.FrameLayout
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import app.custom.component.shared.Loggable
@@ -19,13 +22,13 @@ enum class LeafViewState {
 
 class LeafView : FrameLayout, Loggable {
 
-    lateinit var textView: TextView
 
     private var initialHeight: Int = 0
     private lateinit var stableDrawable: Drawable
     private lateinit var expandedDrawable: Drawable
     private var valueAnimator: ValueAnimator? = null
-    private var pendingState: LeafViewState = LeafViewState.Collapsed
+    private var currentState: LeafViewState = LeafViewState.Collapsed
+    private var textPaint = Paint()
 
     var expandedColor: String = "#ffffff"
         set(value) {
@@ -37,10 +40,12 @@ class LeafView : FrameLayout, Loggable {
             DrawableCompat.setTint(expandedDrawable, Color.parseColor(field))
         }
 
-    var title: String = ""
+    var title: String = if (BuildConfig.DEBUG) "Energy" else ""
         set(value) {
-            textView.text = value
             field = value
+            if (initialHeight != 0) {
+                invalidate()
+            }
         }
 
     constructor(context: Context) : super(context) {
@@ -68,6 +73,11 @@ class LeafView : FrameLayout, Loggable {
         init()
     }
 
+    override fun onDraw(canvas: Canvas?) {
+        super.onDraw(canvas)
+        drawTitle(canvas)
+    }
+
     fun expand(function: (state: LeafViewState, expandedColor: String) -> Unit) {
         setState(LeafViewState.Expanded, function)
     }
@@ -77,11 +87,25 @@ class LeafView : FrameLayout, Loggable {
     }
 
     private fun init() {
+        setWillNotDraw(false)
+        textPaint.isAntiAlias = true
+        textPaint.color = Color.WHITE
+        textPaint.textSize = TITLE_TEXT_SIZE
+
         stableDrawable = ContextCompat.getDrawable(context, R.drawable.ic_leaf)!!
         expandedDrawable = ContextCompat.getDrawable(context, R.drawable.ic_leaf)!!.mutate()
 
         background = stableDrawable
-        textView = TextView(context)
+        viewTreeObserver.addOnGlobalLayoutListener(object : OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                if (initialHeight == 0) {
+                    initialHeight = height
+                }
+                if (initialHeight != 0) {
+                    viewTreeObserver.removeOnGlobalLayoutListener(this)
+                }
+            }
+        })
     }
 
     private fun setState(
@@ -89,7 +113,7 @@ class LeafView : FrameLayout, Loggable {
         function: (state: LeafViewState, expandedColor: String) -> Unit
     ) {
         if (isPreConditionOk(state)) {
-            pendingState = state
+            currentState = state
             valueAnimator?.cancel()
             valueAnimator = null
 
@@ -117,9 +141,10 @@ class LeafView : FrameLayout, Loggable {
 
     private fun isPreConditionOk(nextState: LeafViewState): Boolean {
         if (height == 0) return false
-        if (nextState == pendingState) return false
+        if (nextState == currentState) return false
         if (initialHeight == 0) {
             initialHeight = height
+            invalidate()
         }
         return true
     }
@@ -132,8 +157,28 @@ class LeafView : FrameLayout, Loggable {
         }
     }
 
+    private fun drawTitle(canvas: Canvas?) {
+        if (initialHeight == 0) return
+        canvas?.let {
+            it.save()
+            val x = initialHeight / TITLE_X_COMPENSATION
+            val y = height - TITLE_Y_COMPENSATION
+            it.rotate(TITLE_ROTATION_DEGREES, x, y)
+            textPaint.alpha =
+                if (currentState == LeafViewState.Expanded) TITLE_NO_ALPHA else TITLE_ALPHA
+            it.drawText(title, x, y, textPaint)
+            it.restore()
+        }
+    }
+
     companion object {
         private const val ANIMATION_DURATION = 200L
         private const val EXPAND_HEIGHT_PX = 80
+        private const val TITLE_NO_ALPHA = 255
+        private const val TITLE_ALPHA = 163
+        private const val TITLE_TEXT_SIZE = 93.47f
+        private const val TITLE_ROTATION_DEGREES = -79f
+        private const val TITLE_X_COMPENSATION = 2.7f
+        private const val TITLE_Y_COMPENSATION = 20f
     }
 }

@@ -16,4 +16,14 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="SenseSectionCard">
+        <attr name="sense_type" format="enum">
+            <enum name="sense_reality" value="0" />
+            <enum name="sense_detailed" value="1" />
+            <enum name="sense_abstract" value="2" />
+        </attr>
+        <attr name="sense_image_resource" format="reference" />
+        <attr name="sense_title" format="string" />
+    </declare-styleable>
+
 </resources>
