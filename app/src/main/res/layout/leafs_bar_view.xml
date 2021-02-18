@@ -55,7 +55,6 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/sense_main_card"
         android:layout_width="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_height="@dimen/leaf_bar_main_card_height"
         android:layout_below="@+id/placeholder"
         android:layout_marginStart="@dimen/dp_16"
@@ -63,6 +62,7 @@
         android:layout_marginBottom="@dimen/dp_16"
         app:cardCornerRadius="@dimen/leaf_bar_main_card_corner_radius"
         app:cardElevation="@dimen/dp_8"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/leafs">
 
         <LinearLayout
@@ -79,8 +79,6 @@
                 android:layout_weight="1"
                 app:cardCornerRadius="@dimen/leaf_bar_child_card_corner_radius"
                 app:cardElevation="@dimen/leaf_bar_child_elevation"
-                app:contentPaddingLeft="@dimen/dp_8"
-                app:contentPaddingRight="@dimen/dp_8"
                 app:sense_image_resource="@drawable/energy_reality"
                 app:sense_title="reality"
                 app:sense_type="sense_reality" />
@@ -95,8 +93,6 @@
                 android:layout_weight="1"
                 app:cardCornerRadius="@dimen/leaf_bar_child_card_corner_radius"
                 app:cardElevation="@dimen/leaf_bar_child_elevation"
-                app:contentPaddingLeft="@dimen/dp_8"
-                app:contentPaddingRight="@dimen/dp_8"
                 app:sense_image_resource="@drawable/energy_detailed"
                 app:sense_title="detailed"
                 app:sense_type="sense_detailed" />
@@ -110,8 +106,6 @@
                 android:layout_weight="1"
                 app:cardCornerRadius="@dimen/leaf_bar_child_card_corner_radius"
                 app:cardElevation="@dimen/leaf_bar_child_elevation"
-                app:contentPaddingLeft="@dimen/dp_8"
-                app:contentPaddingRight="@dimen/dp_8"
                 app:sense_image_resource="@drawable/energy_abstract"
                 app:sense_title="abstract"
                 app:sense_type="sense_abstract" />

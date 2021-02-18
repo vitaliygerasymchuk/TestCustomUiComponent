@@ -12,7 +12,7 @@
 
     <dimen name="leaf_bar_child_elevation">@dimen/dp_8</dimen>
     <dimen name="leaf_bar_main_card_height">160dp</dimen>
-    <dimen name="leaf_bar_main_card_corner_radius">10dp</dimen>
+    <dimen name="leaf_bar_main_card_corner_radius">20dp</dimen>
     <dimen name="leaf_bar_child_card_corner_radius">15dp</dimen>
 
     <dimen name="leaf_width">92dp</dimen>
